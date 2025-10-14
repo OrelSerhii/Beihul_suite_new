@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Адмінка — Бейгул та Партнери</title>
+    <style>html,body{margin:0;height:100%;background:#000}</style>
+    <script>window.CMS_MANUAL_INIT = true;</script>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      (function init() {
+        if (!(window.CMS && window.CMS.init)) { return setTimeout(init, 120); }
+
+        window.CMS.init({
+          config: {
+            backend: { name: "git-gateway" },
+            local_backend: true,
+            media_folder: "public/uploads",
+            public_folder: "/uploads",
+            collections: [
+              {
+                name: "posts_uk",
+                label: "Пости (укр)",
+                folder: "content/posts/uk",
+                create: true,
+                slug: "{{slug}}",
+                extension: "md",
+                fields: [
+                  { label: "Заголовок",  name: "title",   widget: "string" },
+                  { label: "Дата",       name: "date",    widget: "datetime", format: "YYYY-MM-DD" },
+                  { label: "Slug",       name: "slug",    widget: "string" },
+                  { label: "Опис",       name: "summary", widget: "text",    required: false },
+                  { label: "Обкладинка", name: "cover",   widget: "image",   required: false },
+                  { label: "Текст",      name: "body",    widget: "markdown" }
+                ]
+              }
+            ]
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
