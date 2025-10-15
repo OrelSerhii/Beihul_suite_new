@@ -1,7 +1,0 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Базові стилі */
-html, body { height: 100%; }
-body { color: #013026; background: #ffffff; }
