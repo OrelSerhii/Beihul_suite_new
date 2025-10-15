@@ -1,0 +1,17 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-brand-bg { background-color: #0B3A33; }
+  .text-brand-green { color: #0D3E34; }
+  .text-brand-gold { color: #F3B060; }
+  .text-brand-gold2 { color: #F8C173; }
+}
+
+html, body {
+  @apply bg-brand-bg text-white;
+}
+
+a { @apply text-brand-green; }
+a:hover { @apply text-brand-gold2; }

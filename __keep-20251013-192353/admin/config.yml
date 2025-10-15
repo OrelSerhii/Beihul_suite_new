@@ -1,0 +1,24 @@
+local_backend: true
+
+backend:
+  name: "git-gateway"
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: "https://beihulandpartners.com"
+
+collections:
+  - name: "posts_uk"
+    label: "Пости (укр)"
+    folder: "content/posts/uk"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата",     name: "date",  widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Slug",     name: "slug",  widget: "string" }
+      - { label: "Опис",     name: "summary", widget: "text", required: false }
+      - { label: "Обкладинка", name: "cover", widget: "image", required: false }
+      - { label: "Текст",    name: "body",  widget: "markdown" }
