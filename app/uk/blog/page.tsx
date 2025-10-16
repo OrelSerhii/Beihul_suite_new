@@ -1,40 +1,33 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import Link from "next/link";
+import { getPosts } from "@/lib/posts";
 
-type PostMeta = { title:string; date:string; slug:string; summary?:string };
+export const dynamic = "force-static"; // SSG
+export const revalidate = 60;          // ISR, если добавишь новые посты
 
-export default function BlogUk() {
-  const dir = path.join(process.cwd(), "content", "posts", "uk");
-  const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
-  const posts: PostMeta[] = files
-    .filter(f => f.endsWith(".md"))
-    .map(file => {
-      const raw = fs.readFileSync(path.join(dir, file), "utf8");
-      const { data } = matter(raw);
-      return {
-        title: String(data.title),
-        date: String(data.date),
-        slug: String(data.slug),
-        summary: data.summary ? String(data.summary) : undefined
-      };
-    })
-    .sort((a,b)=> (a.date < b.date ? 1 : -1));
+export default function BlogUkPage() {
+  const posts = getPosts("uk");
 
   return (
-    <main className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-6">Останні публікації</h1>
-      <ul className="space-y-4">
-        {posts.map(p => (
-          <li key={p.slug}>
-            <a className="text-xl underline" href={`/uk/blog/${p.slug}`}>{p.title}</a>
-            <div className="text-sm opacity-70">
-              {new Date(p.date).toLocaleDateString("uk-UA")}
-            </div>
-            {p.summary && <p>{p.summary}</p>}
-          </li>
-        ))}
-      </ul>
+    <main className="max-w-3xl mx-auto px-4 py-12 space-y-8">
+      <h1 className="text-3xl font-semibold">Блог</h1>
+
+      {posts.length === 0 ? (
+        <p>Поки що немає публікацій.</p>
+      ) : (
+        <ul className="space-y-6">
+          {posts.map((p) => (
+            <li key={p.slug} className="border rounded-xl p-4 hover:shadow-sm">
+              <h2 className="text-xl font-medium">
+                <Link href={`/uk/blog/${p.slug}`}>{p.title}</Link>
+              </h2>
+              {p.excerpt && <p className="text-sm opacity-80 mt-1">{p.excerpt}</p>}
+              <div className="text-xs opacity-60 mt-2">
+                {p.date && new Date(p.date).toLocaleDateString("uk-UA")}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
   );
 }

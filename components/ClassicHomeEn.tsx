@@ -28,7 +28,7 @@ export default function ClassicHome() {
             <a className="hover:text-[#e9b05b]" href="#services">Services</a>
             <a className="hover:text-[#e9b05b]" href="#cases">Cases</a>
             <a className="hover:text-[#e9b05b]" href="#about">About</a>
-            <a className="hover:text-[#e9b05b]" href="#blog">Blog</a>
+            <a className="hover:text-[#e9b05b]" href="/uk/blog">Blog</a>
             <a className="hover:text-[#e9b05b]" href="#contacts">Contacts</a>
           </nav>
           <div className="flex items-center gap-3">
@@ -202,7 +202,7 @@ export default function ClassicHome() {
             <ul className="mt-2 space-y-2 text-gray-600">
               <li><a href="#services" className="hover:text-[#013026]">Services</a></li>
               <li><a href="#cases" className="hover:text-[#013026]">Cases</a></li>
-              <li><a href="#blog" className="hover:text-[#013026]">Blog</a></li>
+              <li><a href="/uk/blog" className="hover:text-[#013026]">Blog</a></li>
               <li><a href="#contacts" className="hover:text-[#013026]">Contacts</a></li>
             </ul>
           </div>
@@ -224,6 +224,7 @@ export default function ClassicHome() {
     </div>
   );
 }
+
 
 
 

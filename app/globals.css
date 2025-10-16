@@ -5,3 +5,23 @@
 /* Базові стилі */
 html, body { height: 100%; }
 body { color: #013026; background: #ffffff; }
+
+/* disable dummy anchors */
+a[href="#"]{pointer-events:none;}
+  
+/* ---- FIX: don't let hero overlay eat clicks below ---- */
+[data-hero]{ pointer-events:none; }
+[data-hero] a, [data-hero] button{ pointer-events:auto; }
+/* ----------------------------------------------------- */
+
+/* hide internal latest section from ClassicHome */
+[data-hide-latest]{display:none;}
+
+/* === Unblock blog clicks === */
+[class*="absolute"][class*="inset-0"], [class*="absolute"][class*="inset-x-0"][class*="bottom-0"] { pointer-events: none !important; }
+a[href^="/uk/blog"] { position: relative; z-index: 10; pointer-events: auto !important; }
+/* === end === */
+
+/* force blog links to be clickable */
+#latest-posts{position:relative; z-index:2147483647; pointer-events:auto !important;}
+#latest-posts a{pointer-events:auto !important; position:relative; z-index:2147483647;}

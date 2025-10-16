@@ -1,2 +1,5 @@
-﻿import ClassicHome from "../../components/ClassicHome";
-export default function Page(){ return <ClassicHome /> }
+import ClassicHome from "../../components/ClassicHome";
+
+export default function Page() {
+  return <ClassicHome />;
+}

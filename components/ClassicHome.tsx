@@ -1,4 +1,4 @@
-﻿import LocaleSwitch from "./LocaleSwitch";
+import LocaleSwitch from "./LocaleSwitch";
 
 export default function ClassicHome() {
   return (
@@ -28,7 +28,7 @@ export default function ClassicHome() {
             <a className="hover:text-[#e9b05b]" href="#services">Послуги</a>
             <a className="hover:text-[#e9b05b]" href="#cases">Кейси</a>
             <a className="hover:text-[#e9b05b]" href="#about">Про нас</a>
-            <a className="hover:text-[#e9b05b]" href="#blog">Блог</a>
+            <a className="hover:text-[#e9b05b]" href="/uk/blog">Блог</a>
             <a className="hover:text-[#e9b05b]" href="#contacts">Контакти</a>
           </nav>
           <div className="flex items-center gap-3">
@@ -63,7 +63,7 @@ export default function ClassicHome() {
             <div className="absolute -top-6 -right-8 w-44 h-44 bg-[#fcb154] rounded-full blur-2xl opacity-60"></div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-[#e9b05b] via-[#fcb154] to-[#e9b05b]"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-[#e9b05b] via-[#fcb154] to-[#e9b05b]"></div>
       </section>
 
       {/* Services */}
@@ -160,7 +160,7 @@ export default function ClassicHome() {
               <div className="text-xs uppercase tracking-wide text-gray-500">Аналітика</div>
               <h3 className="mt-2 text-xl font-semibold">Як підготуватися до податкової перевірки</h3>
               <p className="mt-2 text-gray-600">Ключові кроки комплаенсу, які зменшують ризики та економлять час.</p>
-              <button className="mt-4 text-sm text-[#013026] hover:text-[#e9b05b]">Читати →</button>
+              <a href="/uk/blog/mi-zapustyly-blog" className="mt-4 text-sm text-[#013026] hover:text-[#e9b05b]">Читати →</a>
             </article>
           ))}
         </div>
@@ -202,7 +202,7 @@ export default function ClassicHome() {
             <ul className="mt-2 space-y-2 text-gray-600">
               <li><a href="#services" className="hover:text-[#013026]">Послуги</a></li>
               <li><a href="#cases" className="hover:text-[#013026]">Кейси</a></li>
-              <li><a href="#blog" className="hover:text-[#013026]">Блог</a></li>
+              <li><a href="/uk/blog" className="hover:text-[#013026]">Блог</a></li>
               <li><a href="#contacts" className="hover:text-[#013026]">Контакти</a></li>
             </ul>
           </div>
@@ -224,6 +224,12 @@ export default function ClassicHome() {
     </div>
   );
 }
+
+
+
+
+
+
 
 
 
